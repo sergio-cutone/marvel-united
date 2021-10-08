@@ -24,6 +24,11 @@ const Login = ({ onSignIn, signInError }) => {
     }
   }
 
+  const handleAutoEntry = () => {
+    usernameState("demo@sergiocutone.com")
+    passwordState(1234567)
+  }
+
   useEffect(() => {
     const url_string = window.location.href
     const url = new URL(url_string)
@@ -36,7 +41,12 @@ const Login = ({ onSignIn, signInError }) => {
   return (
     <div className="bg-black bg-opacity-80 fixed top-0 left-0 w-screen h-screen p-5">
       <div className="max-w-screen-sm p-5 bg-white border-8 border-blue-500 mx-auto text-center rounded-md">
-        <img src={logo} alt="Marvel United" className="w-40 mx-auto mb-5" />
+        <img
+          src={logo}
+          alt="Marvel United"
+          className="w-40 mx-auto mb-5"
+          onClick={handleAutoEntry}
+        />
         <p className="text-xl font-bold">Firebase Login</p>
         {errors.username || errors.password ? (
           <div className="text-red-500 mb-3">Please fill in all fields.</div>
